@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>图形</title>
+	<style>
+		.glass-left{
+			position: absolute;
+			border-style: solid;
+			width: 130px;
+			height: 150px;
+			border-color: transparent transparent transparent #dddddd;
+			border-width: 5px 5px 5px 5px;
+			-webkit-transform:skew(5deg);
+			-moz-transform:skew(5deg);
+			transform:skew(5deg);
+		}
+		.glass-right{
+			position: absolute;
+			border-style: solid;
+			width: 130px;
+			height: 150px;
+			border-color: transparent #dddddd transparent transparent;
+			border-width: 5px 5px 5px 5px;
+			-webkit-transform:skew(-5deg);
+			-moz-transform:skew(-5deg);
+			transform:skew(-5deg);
+		}
+		.glass-bottom{
+			margin-left: 5.5px;
+			position: absolute;
+			border-style: solid;
+			width: 119px;
+			height: 149.5px;
+			border-color: transparent transparent #dddddd transparent;
+			border-width: 5px 5px 6px 5px;
+		}
+
+		.clear{
+			width: 200px;
+			height: 200px;
+		}
+		.parallelogram{
+			width: 100px;
+			height: 50px;
+			border: 3px dashed #cc00cc;
+			-moz-transform:skew(-20deg);
+			-webkit-transform:skew(-20deg);
+			transform:skew(-20deg);
+		}
+		.square{
+			width: 0px;
+			height: 0px;
+			border:50px solid #00cccc;
+		}
+		.triangle{
+			border-style: solid;
+			border-color: transparent transparent #000 transparent;
+			border-width: 30px 100px 150px 100px;
+			width: 0px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="glass-left"></div>
+	<div class="glass-right"></div>
+	<div class="glass-bottom"></div>
+	<div class="clear"></div>
+	<br/>
+	<div class="parallelogram"></div>
+	<br/>
+	<div class="square"></div>
+	<br/>
+	<div class="triangle"></div>
+</body>
+
+</html>

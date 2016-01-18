@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>进度条</title>
+	<script src="JS/jquery-2.1.4.min.js"></script>
+	<style type="text/css">
+		html{
+			font-size:20px;
+		}
+		ul{
+			list-style-type: none;
+			overflow: hidden;
+			padding: 1em;
+		}
+		ul li{
+			float: left;
+		}
+		.circle{
+			width: 1rem;
+			height: 1rem;
+			border-radius: 50%;
+			background-color: green;
+			border: 0.1rem solid #aaa;
+		}
+		.cur{
+			background-image: radial-gradient(circle,white 0%,white 42%,green 42%,green 100%);
+		}
+		.noFinishLine{
+			width: 5rem;
+			height: 0.2rem;
+			margin-top: 0.5rem;
+			background-color: #dedede;
+		}
+		.noFinishCircle{
+			width: 1rem;
+			height: 1rem;
+			border-radius: 50%;
+			background-color: #dedede;
+			border: 0.1rem solid #aaa;
+		}
+		.line{
+			width: 5rem;
+			height: 0.2rem;
+			margin-top: 0.5rem;
+			background-color: green;
+			-webkit-transform: scaleX(1.09);
+			-moz-transform: scaleX(1.09);
+			transform: scaleX(1.09);
+		}
+		button{margin-left: 4%;}
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li class="circle cur"></li>
+			<li class="noFinishLine"></li>
+			<li class="noFinishCircle"></li>
+			<li class="noFinishLine"></li>
+			<li class="noFinishCircle"></li>
+			<li class="noFinishLine"></li>
+			<li class="noFinishCircle"></li>
+			<li class="noFinishLine"></li>
+			<li class="noFinishCircle"></li>
+		</ul>
+		<button id="next">下一步</button>
+	</div>
+	<script type="text/javascript">
+		var sum = 0;
+		$("#next").click(function(){
+			if(sum == 3){
+				$("li:nth-child(7)").removeClass("cur");
+				$("li:nth-child(8)").removeClass("noFinishLine");
+				$("li:nth-child(8)").addClass("line");
+				$("li:nth-child(9)").removeClass("noFinishCircle");
+				$("li:nth-child(9)").addClass("circle");
+				$("li:nth-child(9)").addClass("cur");
+				sum ++;
+			}
+			if(sum == 2){
+				$("li:nth-child(5)").removeClass("cur");
+				$("li:nth-child(6)").removeClass("noFinishLine");
+				$("li:nth-child(6)").addClass("line");
+				$("li:nth-child(7)").removeClass("noFinishCircle");
+				$("li:nth-child(7)").addClass("circle");
+				$("li:nth-child(7)").addClass("cur");
+				sum ++;
+			}
+			if(sum == 1){
+				$("li:nth-child(3)").removeClass("cur");
+				$("li:nth-child(4)").removeClass("noFinishLine");
+				$("li:nth-child(4)").addClass("line");
+				$("li:nth-child(5)").removeClass("noFinishCircle");
+				$("li:nth-child(5)").addClass("circle");
+				$("li:nth-child(5)").addClass("cur");
+				sum ++;
+			}
+			if(sum == 0){
+				$("li:first-of-type").removeClass("cur");
+				$("li:nth-child(2)").removeClass("noFinishLine");
+				$("li:nth-child(2)").addClass("line");
+				$("li:nth-child(3)").removeClass("noFinishCircle");
+				$("li:nth-child(3)").addClass("circle");
+				$("li:nth-child(3)").addClass("cur");
+				sum ++;
+			}
+		})
+	</script>
+</body>
+</html>
