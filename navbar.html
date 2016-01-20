@@ -22,12 +22,35 @@
 				height: inherit;
 				margin: 0 auto;
 			}
+			ul{
+				list-style-type: none;
+			}
+			ul li{
+				float: left;
+				line-height: 45px;
+				text-align: center;
+			}
 			a{
 				color: #fff;
 				text-decoration: none;
+				padding: 0 10px;
+				display: block;
 			}
-			ul li{
-				list-style-type: none;
+			a:hover{
+				color: yellow;
+			}
+			ul li ul li{
+				float: none;
+				background-color: #000;
+				margin-top: 1px;
+				border-radius: 4px;
+			}
+			ul li ul{
+				position: absolute;
+				display: none;
+			}
+			ul li:hover ul{
+				display: block;
 			}
 		</style>
 	</head>
@@ -35,32 +58,19 @@
 		<header>
 			<nav>
 				<ul>
-					<li><a href="">首页</a></li>
-					<li><a href="">111</a>
+					<li><a href="">menu0</a></li>
+					<li><a href="">menu1</a>
 						<ul>
-							<li><a href="">111222</a></li>
-							<li><a href="">111222</a></li>
-							<li><a href="">111222</a></li>
+							<li><a href="">menu11</a></li>
+							<li><a href="">menu12</a></li>
+							<li><a href="">menu13</a></li>
 						</ul>
 					</li>
-					<li><a href="">222</a>
+					<li><a href="">menu2</a>
 						<ul>
-							<li><a href="">222222</a></li>
-							<li><a href="">222222</a></li>
-							<li><a href="">2222222</a></li>
-						</ul>
-					</li>
-					<li><a href="">333</a>
-						<ul>
-							<li><a href="">333222</a></li>
-							<li><a href="">333222</a></li>
-							<li><a href="">333222</a></li>
-						</ul>
-					</li>
-					<li><a href="">444</a>
-						<ul>
-							<li><a href="">444222</a></li>
-							<li><a href="">444222</a></li>
+							<li><a href="">menu21</a></li>
+							<li><a href="">menu22</a></li>
+							<li><a href="">menu23</a></li>
 						</ul>
 					</li>
 				</ul>
