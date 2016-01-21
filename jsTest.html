@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<title>JSTest1-Prototype</title>
+		<script>
+			//11111111
+			/*var book = {
+				_year : 2004,
+				edition : 1
+			};
+			
+			Object.defineProperty(book,"year",{
+				get: function(){
+					return this._year;
+				},
+				set: function(newvalue){
+					if(newvalue > 2004){
+						this._year = newvalue;
+						this.edition += newvalue - 2004;
+					}
+				}
+			});
+			
+			var book = {};
+			
+			Object.defineProperties(book,{
+				_year: {
+					value : 2004,
+					writable: true,
+					enumerable: true,
+					configurable: true
+				},//defualt properties are flase!
+				edition: {
+					value : 1,
+					writable: true,
+					enumerable: true,
+					configurable: true
+				},
+				year: {
+					get: function(){
+						return this._year;
+					},
+					set: function(newValue){
+						if(newValue > 2004){
+							this._year = newValue;
+							this.edition += newValue - 2004;
+						}
+					}
+				}
+			});
+			
+			var descriptor = Object.getOwnPropertyDescriptor(book,"_year");
+			alert(descriptor.value);
+			alert(descriptor.writable);
+			
+			book.year = 2006;
+			alert(book.year);
+			alert(book.edition);*/
+			
+			
+			//22222222
+			/*function Animal(){
+				this.name = "Animal";
+				this.showName = function(){
+					alert(this.name);
+				}
+			}
+			
+			function Cat(){
+				this.name = "Cat";
+			}
+			
+			var animal = new Animal();
+			var cat = new Cat();
+			
+			animal.showName.call(cat);
+			animal.showName.apply(cat);
+			
+			function Person(){};
+			
+			Person.prototype.name = "Nicholas";
+			Person.prototype.age = 29;
+			Person.prototype.job = "SE";
+			Person.prototype.sayName = function(){
+				alert(this.name);
+			};
+			
+			var person1 = new Person();
+			var person2 = new Person();
+			
+			person1.name = "Grey";
+			
+			alert(person1.name);
+			alert(person2.name);
+			
+			delete person1.name;
+			alert(person1.name);*/
+			
+			
+			//33333333
+			/*var o = {
+				toString:function(){
+					return "My Oblect";
+				}
+			};
+			
+			for(var prop in o){
+				if(prop === "toString"){
+					alert("Found toString");
+				}
+			}*/
+			
+			
+			//44444444
+			/*function person(){};
+			
+			var friend = new person();
+			
+			person.prototype.sayHi = function(){
+				alert("HI");
+			};
+			
+			friend.sayHi();*/
+			
+			
+			//55555555
+			/*function person(){};
+			
+			var friend = new person();
+			
+			person.prototype = {
+				constructor:person,//if not,constructor will disappear. == Object. constructor's Enumerable changes to true.
+				name:"Nicholas",
+				age:29,
+				job:"SE",
+				sayName:function(){
+					alert(this.name);
+				}
+			};
+			
+			friend.sayName();//error
+			alert(friend.name);//undefined*/
+			
+			
+			//6666666
+			/*function person(){};
+			
+			person.prototype.name="Nicholas";
+			person.prototype.age=29;
+			person.prototype.job="SE";
+			person.prototype.friends=["Grey","Peter"];
+			
+			person.prototype = {
+				constructor:person,
+				name:"Nicholas",
+				age:29,
+				job:"SE",
+				friends:["Grey","Peter"]
+			}
+			
+			
+			var person1 = new person();
+			var person2 = new person();
+			
+			person1.friends.push("Van");
+			
+			alert(person1.friends);
+			alert(person2.friends);//two different prototype resualts are same
+			//the prototype's big question
+			*/
+			
+			
+		</script>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

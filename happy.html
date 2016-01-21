@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Happy Everyday</title>
+	<style>
+		html,body,div{text-align:center;margin-top:3%;height:100%;width:100%;}
+	</style>
+</head>
+
+<body>
+	<h2>Have a nice day!</h2>
+	<canvas id="myCanvas" width="200px" height="200px">Your browser does not support the canvas element.</canvas>
+
+	<script type="text/javascript">
+		var c = document.getElementById("myCanvas");
+		var cxt = c.getContext("2d");
+		
+		cxt.strokeStyle = "blue";
+		cxt.lineWidth = 5;
+		cxt.strokeRect(0,0,200,200);
+
+		cxt.strokeStyle = "red";
+		cxt.lineWidth = 2;
+		cxt.arc(100,100,60,0,Math.PI*2,true);
+		cxt.moveTo(140,100);
+		cxt.arc(100,100,40,0,Math.PI,false);
+		cxt.moveTo(85,80);
+		cxt.arc(80,80,5,0,Math.PI*2,true);
+		cxt.moveTo(125,80);
+		cxt.arc(120,80,5,0,Math.PI*2,true);
+		cxt.stroke();
+	</script>
+</body>
+
+</html>

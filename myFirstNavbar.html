@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>myFirstNavbar</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			body{
+				max-width:100%
+			}
+			header{
+				width:100%;
+				background-color:#000;
+			}
+			nav{
+				margin:0 auto;
+				width:1000px;
+				height:50px;
+			}
+			ul,li{
+				list-style-type:none;
+			}
+			a{
+				color:#fff;
+				font-weight:600;
+				text-decoration:none;
+			}
+			.level0{
+				display:inline-block;
+				position:relative;
+				float:left;
+				padding-top:15px;
+				width:85px;
+				height:35px;
+				text-align:center;
+				border-bottom:2px solid #fff;
+				cursor:pointer;
+			}
+			.level0:hover{
+				background-color:#aaa;
+			}
+			ul li:hover:after{
+				content:"";
+				position:absolute;
+				top:50px;
+				left:0;
+				height:2px;
+				background-color:#1FAEFF;
+				animation:longer 1s;
+				-moz-animation:longer 1s;
+				-webkit-animation:longer 1s;
+				-o-animation:longer 1s;
+			}
+			ul ul{
+				display:none;
+			}
+			ul li:hover ul{
+				display:block;
+				position:absolute;
+				top:52px;
+			}
+			ul ul li{
+				position:relative;
+				padding-top:15px;
+				width:85px;
+				height:35px;
+				background-color:#000;
+				border-bottom:2px solid #fff;
+				border-radius:4px;
+			}
+			ul ul li:hover{
+				background-color:#aaa;
+			}	
+			@keyframes longer{
+				from{width:0;}
+				to{width:85px;}
+			}
+			@-moz-keyframes longer{
+				from{width:0;}
+				to{width:85px;}
+			}
+			@-webkit-keyframes longer{
+				from{width:0;}
+				to{width:85px;}
+			}
+			@-o-keyframes longer{
+				from{width:0;}
+				to{width:85px;}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li class="level0"><a>Home</a></li>
+					<li class="level0"><a>News</a>
+						<ul>
+							<li><a>Past</a></li>
+							<li><a>Today</a></li>
+							<li><a>Future</a></li>
+						</ul>
+					</li>
+					<li class="level0"><a>Blog</a>
+						<ul>
+							<li><a>Blog</a></li>
+							<li><a>Github</a></li>
+						</ul>
+					</li>
+					<li class="level0"><a>About</a></li>
+				</ul>
+			</nav>
+		</header>
+	</body>
+</html>
