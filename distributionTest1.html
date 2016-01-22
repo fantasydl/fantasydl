@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>distributionTest</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+			}
+			body{
+				max-width:100%;
+			}
+			div,header{
+				border:10px solid #000;
+			}
+			.left-main-1,.left-main-2,.right-main{
+				border:5px solid #000;
+			}
+			.container{
+				width:960px;
+				margin:0 auto;
+				padding-top:20px;
+				background-color:#ddd;
+				border:0;
+			}
+			.clear{
+				clear:both;
+				width:0;
+				height:0;
+				border:0;
+			}
+			header{
+				width:920px;
+				height:80px;
+				margin:0 10px 20px 10px;
+			}
+			.left{
+				float:left;
+			}
+			.right{
+				float:right;
+			}
+			.sidebar{
+				margin-left:20px;
+				border:none;
+			}
+			.left-top{
+				width:260px;
+				height:260px;
+				margin-bottom:20px;
+			}
+			.left-main{
+				width:260px;
+				height:700px;
+			}
+			.left-main-1{
+				margin:15px 0 0 90px;
+				width:140px;
+				height:70px;
+			}
+			.left-main-2{
+				margin:20px 0 0 120px;
+				width:110px;
+				height:70px;
+			}
+			.content{
+				margin-right:40px;
+				border:0;
+			}
+			.right-top{
+				margin-bottom:20px;
+				border:0;
+			}
+			.right-top-1{
+				width:260px;
+				height:260px;
+				margin-right:35px;
+			}
+			.right-top-2{
+				width:260px;
+				height:260px;
+			}
+			.right-main{
+				width:583px;
+				height:712px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header></header>
+			<div class="sidebar left">
+				<div class="left-top">
+				</div>
+				<div class="left-main">
+					<div class="left-main-1"></div>
+					<div class="left-main-2"></div>
+				</div>
+			</div>
+			<div class="content right">
+				<div class="right-top">
+					<div class="right-top-1 left"></div>
+					<div class="right-top-2 right"></div>
+					<div class="clear"></div>
+				</div>
+				<div class="right-main"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</body>
+</html>

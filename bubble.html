@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-sclae=1.0">
+		<title>bubble</title>
+		<style>
+			.bubble{
+				position:relative;
+				margin:30px 0 0 30px;
+				width:100px;
+				height:100px;
+				border:2px solid #000;
+			}
+			.bubble:before,.bubble:after{
+				content:"";
+				position:absolute;
+				left:100px;
+				width:0;
+				height:0;
+			}
+			.bubble:before{
+				top:45.5px;
+				border:14px solid;
+				border-color:transparent transparent transparent #000;
+			}
+			.bubble:after{
+				top:48px;
+				border:12px solid;
+				border-color:transparent transparent transparent #fff;
+			}
+			.bubble p{
+				margin:10px 0 0 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bubble">
+			<p>Hello!</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<title>JSTest2</title>
+		<script>
+			/*
+			function Person(name,age,job){
+				var o = new Object();
+				
+				o.sayName = function(){
+					alert(name);
+				};
+				return o;//********************important
+			};
+			
+			var person = Person("Nicholas",29,"SE");
+			
+			alert(person.name);//undefined
+			person.sayName();//Nicholas
+			*/
+			
+			
+			/*
+			function SuperType(){
+				this.property = true;
+			}
+			
+			SuperType.prototype.getSuperValue = function(){
+				return this.property;
+			};
+			
+			function Subtype(){
+				this.subproperty = false;
+			}
+			
+			//inherit SuperType
+			Subtype.prototype = new SuperType();
+			
+			Subtype.prototype.getSubValue = function(){
+				return this.subproperty;
+			};
+			
+			var instance = new Subtype();
+			alert(instance.getSuperValue());//true
+			alert(instance.getSubValue());//false
+			
+			for(i in instance){
+				alert(i);
+				alert(instance.i);
+			}
+			*/
+			
+			
+			/*
+			function SuperType(){
+				this.color = ["red","blue","green"];
+			}
+			
+			function SubType(){}
+			
+			SubType.prototype = new SuperType();
+			
+			var instance1 = new SubType();
+			instance1.color.push("black");
+			alert(instance1.color);//red,blue,green,black
+			
+			var instance2 = new SubType();
+			alert(instance2.color);//red,blue,green,black
+			*/
+			
+			
+			/*
+			function SuperType(){
+				this.color= ["red","blue","green"];
+			}
+			
+			function SubType(){
+				SuperType.call(this);
+			}
+			
+			var instance1 = new SubType();
+			instance1.color.push("black");
+			alert(instance1.color);//red,blue,green,black
+			
+			var instance2 = new SubType();
+			alert(instance2.color);//red,blue,green
+			*/
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>
