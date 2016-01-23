@@ -6,37 +6,103 @@
 		<title>bubble</title>
 		<style>
 			.bubble{
-				position:relative;
-				margin:30px 0 0 30px;
-				width:100px;
-				height:100px;
-				border:2px solid #000;
-			}
-			.bubble:before,.bubble:after{
-				content:"";
-				position:absolute;
-				left:100px;
-				width:0;
-				height:0;
-			}
-			.bubble:before{
-				top:45.5px;
-				border:14px solid;
-				border-color:transparent transparent transparent #000;
-			}
-			.bubble:after{
-				top:48px;
-				border:12px solid;
-				border-color:transparent transparent transparent #fff;
+				position: relative;
+				margin: 30px 0 0 30px;
+				width: 100px;
+				height: 100px;
+				border: 2px solid #000;
+				border-radius: 4px;
 			}
 			.bubble p{
-				margin:10px 0 0 10px;
+				margin: 10px 0 0 10px;
+			}
+			.bubble-top:before,.bubble-top:after{
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 0;
+			}
+			.bubble-top:before{
+				left: 45px;
+				top: -27px;
+				border: 14px solid;
+				border-color: transparent transparent #000 transparent;
+			}
+			.bubble-top:after{
+				top: -24px;
+				left: 47px;
+				border: 12px solid;
+				border-color: transparent transparent #fff transparent;
+			}
+			.bubble-right:before,.bubble-right:after{
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 0;
+			}
+			.bubble-right:before{
+				top: 46px;
+				left: 100px;
+				border: 14px solid;
+				border-color: transparent transparent transparent #000;
+			}
+			.bubble-right:after{
+				top: 48px;
+				left: 100px;
+				border: 12px solid;
+				border-color: transparent transparent transparent #fff;
+			}
+			.bubble-bottom:before,.bubble-bottom:after{
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 0;
+			}
+			.bubble-bottom:before{
+				top: 100px;
+				left: 45px;
+				border: 14px solid;
+				border-color: #000 transparent transparent transparent;
+			}
+			.bubble-bottom:after{
+				top: 100px;
+				left: 46.5px;
+				border: 12px solid;
+				border-color: #fff transparent transparent transparent;
+			}
+			.bubble-left:before,.bubble-left:after{
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 0;
+			}
+			.bubble-left:before{
+				top: 46px;
+				left: -27px;
+				border: 14px solid;
+				border-color: transparent #000 transparent transparent;
+			}
+			.bubble-left:after{
+				top: 48px;
+				left: -23px;
+				border: 12px solid;
+				border-color: transparent #fff transparent transparent;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="bubble">
+		<div class="bubble bubble-top">
 			<p>Hello!</p>
 		</div>
+		<div class="bubble bubble-right">
+			<p>Hello!</p>
+		</div>
+		<div class="bubble bubble-bottom">
+			<p>Hello!</p>
+		</div>
+		<div class="bubble bubble-left">
+			<p>Hello!</p>
+		</div>
+
 	</body>
 </html>
