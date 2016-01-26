@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>jsTest4</title>
+	</head>
+	<body>
+		<header></header>
+		<div></div>
+		<div id="main"></div>
+		<footer></footer>
+	</body>
+	<script>
+		
+		
+	
+		var someNode = document.getElementById("main");
+		if(someNode.nodeType == 1){
+			alert("Node is an element!");
+		}
+		alert(someNode.parentNode);//HTMLBODYELEMENT
+		alert(someNode.previousSibling);//OBJECT TEXT
+		alert(someNode.nextSibling);//OBJECT TEXT
+		alert(someNode.nextSibling.parentNode);//HTMLBODYELEMENT
+	</script>
+</html>
