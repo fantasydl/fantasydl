@@ -21,15 +21,26 @@
     </style>
     <script type="text/javascript">
     // JS实现选项卡切换
-    window.onload{
+    window.onload = function(){
     	var aA = document.getElementsByTagName("a");
     	for(var i = 0;i < aA.length;i++){
-    		setS(aA[i]);
+    		setS(aA[i],i);
     	}
     }
     
-    function setS(obj){
-    	obj.
+    function setS(obj,j){
+    	var aA = document.getElementsByTagName("a");
+    	var dDiv = document.getElementsByTagName("div");
+    	obj.onclick = function(){
+    		for(var ii = 0;ii < aA.length;ii++){
+    			aA[ii].className = null;
+    		}
+    		aA[j].className = "selected";
+    		for(var dd = 1;dd < dDiv.length;dd++){
+    			dDiv[dd].className = "page hide";
+    		}
+    		dDiv[j+1].className = "page";
+    	}
     }
     </script>
  
