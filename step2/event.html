@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>事件处理程序with能力检测</title>
+</head>
+<body>
+	<div>
+		<input id="btn" type="button" value="按钮" />
+	</div>
+	<script type="text/javascript">
+		function showMes(){
+			alert("This is a button！");
+		}
+		var eventUse = {
+			addEventTo : function(element,type,work){
+				if(element.addEventListener){
+					element.addEventListener(type,work,false);
+				}else if(element.attachEvent){
+					element.attachEvent('on'+type,work);
+				}else{
+					element['on'+type]=work;
+				}
+			},
+			removeEventFrom : function(element,type,work){
+				if(element.removeEventListener){
+					element.removeEventListener(type,work,false);
+				}else if(element.detachEvent){
+					element.detachEvent('on'+type,work);
+				}else{
+					element['on'+type]=null;
+				}
+			}
+		}
+		var btn = document.getElementById("btn");
+		eventUse.addEventTo(btn,'click',showMes);
+	</script>
+</body>
+</html>
