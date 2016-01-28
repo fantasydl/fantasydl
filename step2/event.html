@@ -5,13 +5,28 @@
     <title>事件处理程序with能力检测</title>
 </head>
 <body>
-	<div>
+	<div id="box">
 		<input id="btn" type="button" value="按钮" />
+		<a href="innerPAages.html" id="goTo">跳转</a>
 	</div>
 	<script type="text/javascript">
-		function showMes(){
+		function showMes(event){
+			event = event || window.event;
+			var ele = event.target || event.srcElement;
 			alert("This is a button！");
+			alert(event.type+" "+ele.nodeName+""+ele.nodeValue);
+			event.stopPropagation();
 		}
+
+		function showBox(){
+			alert("This is a div!");
+		}
+
+		function stopGoTo(event){
+			event.stopPropagation();
+			event.preventDefault();
+		}
+		//封装 能力检测
 		var eventUse = {
 			addEventTo : function(element,type,work){
 				if(element.addEventListener){
@@ -30,10 +45,31 @@
 				}else{
 					element['on'+type]=null;
 				}
+			},
+			getEvent:function(event){
+				return event?event:window.event;
+			},
+			preventDefault:function(event){
+				if (event.preventDefault) {
+					event.preventDefault();
+				}else{
+					event.returnValue = false;
+				};
+			},
+			stopPropagation:function(event){
+				if(event.stopPropagation){
+					event.stopPropagation();
+				}else{
+					event.cancelBubble = true;
+				};
 			}
 		}
 		var btn = document.getElementById("btn");
 		eventUse.addEventTo(btn,'click',showMes);
+		var box = document.getElementById("box");
+		eventUse.addEventTo(box,'click',showBox);
+		var go = document.getElementById("goTo");
+		eventUse.addEventTo(go,'click',stopGoTo);
 	</script>
 </body>
 </html>
