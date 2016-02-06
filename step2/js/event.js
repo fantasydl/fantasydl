@@ -2,7 +2,7 @@ var eventUtil={
          	// 添加句柄
          	addHandler:function(element,type,handler){
                if(element.addEventListener){
-                 element.addEventListener(type,handler,false);
+                 element.addEventListener(type,handler,false); // 事件名，执行函数，true捕获false冒泡
                }else if(element.attachEvent){
                  element.attachEvent('on'+type,handler);
                }else{
@@ -28,14 +28,14 @@ var eventUtil={
           getElement:function(event){
             return event.target || event.srcElement;
           },
-          preventDefault:function(event){
+          preventDefault:function(event){ // 阻止默认
             if(event.preventDefault){
               event.preventDefault();
             }else{
               event.returnValue=false;
             }
           },
-         stopPropagation:function(event){
+         stopPropagation:function(event){ // 阻止冒泡
            if(event.stopPropagation){
              event.stopPropagation();
            }else{

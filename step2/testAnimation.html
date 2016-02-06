@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>Test</title>
+		<style type="text/css">
+			ul,li{list-style-type: none;}
+			#li1{display: block;float: left;width: 200px;height: 100px;margin: 30px;background-color: yellow;border: 3px solid #000;filter: alpha(opacity:30);opacity: 0.3;}
+		</style>
+		<script type="text/javascript" src="js/jsAnimation.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oLi = document.getElementById('li1');
+				oLi.onmouseover = function(){
+					mAnimate(oLi,{opacity :100},function(){
+						mAnimate(oLi,{width: 400,height :200});
+					});
+				}
+				oLi.onmouseout = function(){
+					mAnimate(oLi,{width : 200,height : 100},function(){
+						mAnimate(oLi,{opacity :30});
+					})
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li id="li1"></li>
+		</ul>
+	</body>
+</html>
