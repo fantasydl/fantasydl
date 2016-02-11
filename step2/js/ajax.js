@@ -5,8 +5,9 @@ if (window.XMLHttpRequest) {
 	request = new ActiveXObject("Microsoft.XMLHTTP");  // IE6及以下
 }
 request.open("POST","get.php",true);
-request.send();
 request.setRequestHeader("Content-Type"."application/x-www-form-urlencoded"); // POST必须有
+var data = 
+request.send(data);
 request.onreadystatechange = function(){
 	if(request.readystate === 4 && request.status === 200){ // 响应完成且请求通过
 		var data = JSON.parse(request.responseText); // 解析JSON
