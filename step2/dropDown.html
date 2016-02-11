@@ -47,6 +47,9 @@
           };
           var j = i;
           as[i].onmouseover = function(){
+            if(index > -1 && index < 5){
+              as[index].style.backgroundColor="#fff";
+            }
             index = j - 1;
             this.style.backgroundColor = "#789";
           };
