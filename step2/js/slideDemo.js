@@ -28,12 +28,12 @@ window.onload = function(){
 				list.style.left = lLeft + speed +'px';
 				setTimeout(startA,interval);
 			}else{
-				list.style.left = newLeft + 'px'
 				if(newLeft > -600){
 					list.style.left = -3000 + 'px';
-				}
-				if(newLeft < -3000){
+				}else if(newLeft < -3000){
 					list.style.left = -600 + 'px';
+				}else{
+					list.style.left = newLeft + 'px';
 				}
 				animated = false;
 			}
