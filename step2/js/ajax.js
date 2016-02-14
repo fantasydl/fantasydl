@@ -6,7 +6,7 @@ if (window.XMLHttpRequest) {
 }
 request.open("POST","get.php",true);
 request.setRequestHeader("Content-Type"."application/x-www-form-urlencoded"); // POST必须有
-var data = 
+var data = "name=" + name + "&sex=" + sex;
 request.send(data);
 request.onreadystatechange = function(){
 	if(request.readystate === 4 && request.status === 200){ // 响应完成且请求通过

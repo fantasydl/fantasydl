@@ -43,6 +43,8 @@ function countDays(tString){
 		lefttime = (targetDate.getTime() - now.getTime())/(24*60*60*1000);
 	if(lefttime > 0){
 		return Math.ceil(lefttime);
+	}else{
+		return 0;
 	}
 }
 

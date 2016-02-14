@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>checkBoxs</title>
+</head>
+<body>
+	<label for=""><input type="checkbox">1</label>
+	<label for=""><input type="checkbox">2</label>
+	<label for=""><input type="checkbox">3</label>
+	<label for=""><input type="checkbox">全选</label>
+	<script type="text/javascript">
+		window.onload = function(){
+			var cbs = document.getElementsByTagName('input'),
+				len = cbs.length - 1;
+
+			cbs[len].onchange = function(){
+				var ckstate = this.checked;
+				for(var i = 0,l = len;i < l;i++){
+					cbs[i].checked = ckstate;
+				}
+			}
+
+			for(var i = 0,l = len;i < l;i++){
+				cbs[i].onchange = function(){
+					if(checkState()){
+						cbs[len].checked = true;
+					}else{
+						cbs[len].checked = false;
+					}
+				}
+			}
+
+			function checkState(){
+				var result = false;
+
+				for(var i = 0,l = cbs.length - 1;i < l;i++){
+					result = true;	
+					if(cbs[i].checked != true){
+						result = false;
+						break;
+					}	
+				}
+				return result;
+			}
+		}
+	</script>
+</body>
+</html>

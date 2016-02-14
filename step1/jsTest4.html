@@ -3,24 +3,49 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>jsTest4</title>
+		<script>
+		function onLoad(f){
+			if(onLoad.loaded){
+				debugger;
+				window.setTimeout(f,0);
+			}else if(window.addEventListener){
+				debugger;
+				window.addEventListener("load",f,false);
+			}else if(window.attachEvent){
+				debugger;
+				window.attachEvent("load",f);
+			}
+		}
+		onLoad.loaded = false;
+		onLoad(function(){
+			onLoad.loaded = true;
+			debugger;
+		})
+		// var someNode = document.getElementById("main");
+		// if(someNode.nodeType == 1){
+		// 	alert("Node is an element!");
+		// }
+		// alert(someNode.parentNode);//HTMLBODYELEMENT
+		// alert(someNode.previousSibling);//OBJECT TEXT
+		// alert(someNode.nextSibling);//OBJECT TEXT
+		// alert(someNode.nextSibling.parentNode);//HTMLBODYELEMENT
+	</script>
 	</head>
 	<body>
 		<header></header>
 		<div></div>
 		<div id="main"></div>
 		<footer></footer>
+		<a href="javascript:new Date().toLocaleTimeString()">What time is it?</a>
+		<a href="javascript:
+			var e = "",r = "";
+			do{
+				e = prompt("Expression:" + e + "\n" + r + "\n",e);
+				try{ r = "Result:" + eval(e); }
+				catch(ex){ r = ex; }
+			}while(e);
+			void 0;
+		">JavaScript Evaluator</a>
 	</body>
-	<script>
-		
-		
-	
-		var someNode = document.getElementById("main");
-		if(someNode.nodeType == 1){
-			alert("Node is an element!");
-		}
-		alert(someNode.parentNode);//HTMLBODYELEMENT
-		alert(someNode.previousSibling);//OBJECT TEXT
-		alert(someNode.nextSibling);//OBJECT TEXT
-		alert(someNode.nextSibling.parentNode);//HTMLBODYELEMENT
-	</script>
+
 </html>
