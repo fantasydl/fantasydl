@@ -50,7 +50,6 @@ window.onload = function(){
 			}
 		}
 		buttons[index - 1].className = "on";
-		console.log(index);
 	}
 
 	prev.onclick = function(){
