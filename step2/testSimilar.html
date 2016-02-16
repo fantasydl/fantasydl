@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Untitled Document</title>
+    
+</head>
+<body>
+    <script type="text/javascript">   
+        /*
+         * param1 Array 
+         * param2 Array
+         * return true or false
+         */
+        function arraysSimilar(arr1, arr2){
+            if(typeof arr1 == 'string'||typeof arr2 == 'string'){
+                return false;
+            }
+            if((!arr1 instanceof Array)||(!arr2 instanceof Array)){
+                return false;
+            }
+            if((arr1 === null)&&(arr2 === null)){
+                return false;
+            }
+            if((arr1 == undefined)||(arr2 == undefined)){
+                return false;
+            }
+            if(arr1.length != arr2.length){
+                return false;
+            }
+            var flag = true;
+            for(var i = 0,l = arr1.length;i < l;i++){
+                for(var j = 0,m = arr2.length;j < m;j++){
+                    if(Object.prototype.toString.apply(arr1[i]) === Object.prototype.toString.apply(arr2[j]) && typeof arr1[i] === typeof arr2[j]){
+                        break;
+                    }else if(j == arr2.length-1){
+                        flag = false;
+                    }
+                }
+            }
+            for(var i = 0,l = arr2.length;i < l;i++){
+                for(var j = 0,m = arr1.length;j < m;j++){
+                    if(Object.prototype.toString.apply(arr1[j]) === Object.prototype.toString.apply(arr2[i]) && typeof arr1[j] === typeof arr2[i]){
+                        break;
+                    }else if(j == arr1.length-1){
+                        flag = false;
+                    }
+                }
+            }
+            return flag;
+        }
+    </script>
+    <script src="js/testData.js"></script>
+</body>
+</html>
