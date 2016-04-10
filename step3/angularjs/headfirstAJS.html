@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Head First AngularJS</title>
+	<script type="text/javascript" src="http://cdn.bootcss.com/angular.js/1.1.0/angular.min.js"></script>
+	<script type="text/javascript">
+		var modal = {
+			user : "FantasyDL",
+			items : [{action : "Learn AngularJS", done : false},
+					 {action : "Fall In Love", done : false},
+					 {action : "Be A Real Man", done : false}]
+					};
+		var todoApp = angular.modual("todoApp",[]);
+		todoApp.controller("ToDoCtrl",function($scope){
+			$scope.todo = modal;
+			$scope.user = modal.user;
+			$scope.items = modal.items;
+		});
+	</script>
+</head>
+<body ng-controller="ToDoCtrl">
+	<h1>{{todo.user}}'s To Do List</h1>
+	<div>
+		<input type="text">
+		<button>ADD</button>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>Description</th>
+				<th>checkbox</th>
+				<th>Done</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in todo.items">
+				<td>{{item.action}}</td>
+				<td><input type="checkbox" ng-modal="{{item.done}}"></td>
+				<td>{{item.done}}</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
