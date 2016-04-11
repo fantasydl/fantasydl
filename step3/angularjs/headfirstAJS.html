@@ -3,25 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Head First AngularJS</title>
-	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
-	<script type="text/javascript">
-		var model = {
-			user : "FantasyDL",
-			items : [{action : "Learn AngularJS", done : false},
-					 {action : "Fall In Love", done : false},
-					 {action : "Be A Real Man", done : false}]
-					};
-		var todoApp = angular.module("todoApp",[]);
-		todoApp.controller("ToDoCtrl",function($scope){
-			$scope.todo = model;
-		});
-	</script>
+	<style type="text/css">
+		div {
+			margin: 10px;
+		}
+	</style>
 </head>
 <body ng-controller="ToDoCtrl">
-	<h1>{{todo.user}}'s To Do List</h1>
+	<h1 id="lisTitle">{{todo.user}}'s To Do List</h1>
+	<h3> surplus:{{count()}}</h3>
+	<div><button ng-click="changeUser()">changeUser</button></div>
 	<div>
-		<input type="text">
-		<button>ADD</button>
+		<input type="text" ng-model="actionTest">
+		<button ng-click="addRow(actionTest)">ADD</button>
 	</div>
 	<table>
 		<thead>
@@ -32,12 +26,88 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="item in todo.items" ng-show="item.done == false">
+			<tr ng-repeat="item in todo.items|checkedItems:showComplete|orderBy:'action'">
 				<td>{{item.action}}</td>
 				<td><input type="checkbox" ng-model="item.done"></td>
 				<td>{{item.done}}</td>
 			</tr>
 		</tbody>
 	</table>
+	<div><label>showAll</label><input type="checkbox" ng-model="showComplete"></div>
+
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script type="text/javascript">
+		// 页面不刷新数据一直被存储在浏览器中
+		var model1 = {
+			user : "FantasyDL1",
+			items : [{action : "Learn AngularJS", done : false},
+					 {action : "Fall In Love", done : false},
+					 {action : "Be A Real Man", done : false},
+					 {action : "Finish My Work", done : true}]
+					};
+
+		var model2 = {
+			user : "FantasyDL2",
+			items : [{action : "Learn AngularJS", done : true},
+					 {action : "Fall In Love", done : true},
+					 {action : "Be A Real Man", done : false},
+					 {action : "Finish My Work", done : true}]
+					};
+
+		// 创建模型
+		var todoApp = angular.module("todoApp",[]);
+
+		// 创建控制器
+		todoApp.controller("ToDoCtrl",function($scope){
+			// 绑定数据
+			$scope.todo = model1;
+			// 记录未完成数量
+			$scope.count = function(){
+				var result = 0;
+				angular.forEach($scope.todo.items,function(item){
+					if(item.done == false){
+						result++;
+					}
+				});
+				return result;
+			};
+			// 新增
+			$scope.addRow = function(actionTest){
+				var obj = {};
+				obj.action = actionTest;
+				obj.done = false;
+				$scope.todo.items.push(obj);
+			};
+			// 改变用户
+			$scope.changeUser = function(){
+				if($scope.todo.user == 'FantasyDL1'){
+					$scope.todo = model2;
+				}else{
+					$scope.todo = model1;
+				}		
+			};
+		});
+
+		// 过滤
+		todoApp.filter("checkedItems",function(){
+			return function(items,showComplete){
+				var result = [];
+				angular.forEach(items,function(item,index){ 
+				// angular.forEach(objs, function(data,index,array){})
+				// 参数1：遍历的对象数组，参数2：回调函数
+				// 回调函数参数1：遍历的当前数据，参数2：遍历的索引，参数3：遍历的对象数组（每次遍历都会把原样传一遍）；后两个参数可以省略
+				// data == array[index]
+					if(item.done == false || showComplete == true){
+						result.push(item);
+					}
+				});
+				return result;
+			}
+		});
+
+		// jqLite的运用,angularjs.element()中是DOM节点
+		var lisTitle = document.getElementById('lisTitle');
+		angular.element(lisTitle).css('color','#FF7200');
+	</script>
 </body>
 </html>
