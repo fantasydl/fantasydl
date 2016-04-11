@@ -3,19 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Head First AngularJS</title>
-	<script type="text/javascript" src="http://cdn.bootcss.com/angular.js/1.1.0/angular.min.js"></script>
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 	<script type="text/javascript">
-		var modal = {
+		var model = {
 			user : "FantasyDL",
 			items : [{action : "Learn AngularJS", done : false},
 					 {action : "Fall In Love", done : false},
 					 {action : "Be A Real Man", done : false}]
 					};
-		var todoApp = angular.modual("todoApp",[]);
+		var todoApp = angular.module("todoApp",[]);
 		todoApp.controller("ToDoCtrl",function($scope){
-			$scope.todo = modal;
-			$scope.user = modal.user;
-			$scope.items = modal.items;
+			$scope.todo = model;
 		});
 	</script>
 </head>
@@ -34,9 +32,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="item in todo.items">
+			<tr ng-repeat="item in todo.items" ng-show="item.done == false">
 				<td>{{item.action}}</td>
-				<td><input type="checkbox" ng-modal="{{item.done}}"></td>
+				<td><input type="checkbox" ng-model="item.done"></td>
 				<td>{{item.done}}</td>
 			</tr>
 		</tbody>
